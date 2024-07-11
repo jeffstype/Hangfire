@@ -3,12 +3,12 @@ Include "packages\Hangfire.Build.0.4.5\tools\psake-common.ps1"
 Task Default -Depends Pack
 
 Task Merge -Depends Compile -Description "Run ILRepack /internalize to merge required assemblies." {
-    Repack-Assembly @("Hangfire.Core", "net451") @("Cronos", "CronExpressionDescriptor", "Microsoft.Owin")
-    Repack-Assembly @("Hangfire.Core", "net46") @("Cronos", "CronExpressionDescriptor", "Microsoft.Owin")
+    Repack-Assembly @("Hangfire.Core", "net451") @("CronExpressionDescriptor", "Microsoft.Owin")
+    Repack-Assembly @("Hangfire.Core", "net46") @("CronExpressionDescriptor", "Microsoft.Owin")
     Repack-Assembly @("Hangfire.SqlServer", "net451") @("Dapper")
 
-    Repack-Assembly @("Hangfire.Core", "netstandard1.3") @("Cronos")
-    Repack-Assembly @("Hangfire.Core", "netstandard2.0") @("Cronos")
+    #Repack-Assembly @("Hangfire.Core", "netstandard1.3") @("Cronos")
+    #Repack-Assembly @("Hangfire.Core", "netstandard2.0") @("Cronos")
     Repack-Assembly @("Hangfire.SqlServer", "netstandard1.3") @("Dapper")
     Repack-Assembly @("Hangfire.SqlServer", "netstandard2.0") @("Dapper")
 }
